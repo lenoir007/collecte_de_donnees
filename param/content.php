@@ -1,11 +1,11 @@
 <?php
     session_start();
-   // header("Content-type:application/json");
+   header("Content-type:application/json");
     require "zo_frame.php";
     require "db.php";
     $user = "1";
 
-    $add_collect = $db->prepare("INSERT INTO ".TABLE_COLLECT."(denre_,source_,circuit_,achat_,livraison_,user_,save_) VALUES(?,?,?,?,?,?,?)");
+    //$add_collect = $db->prepare("INSERT INTO ".TABLE_COLLECT."(denre_,source_,circuit_,achat_,livraison_,user_,save_) VALUES(?,?,?,?,?,?,?)");
 
     $request = ["end" => false,"data" => [],"pack" => ""]; $do = new zo();
     if(isset($_POST["action"])){
@@ -15,7 +15,7 @@
                     
                 }
                 else{
-                    $colle = $db -> prepare("SELECT * FROM ".TABLE_COLLECT." WHERE user_=? ORDER BY id DESC");
+                   /*$colle = $db -> prepare("SELECT * FROM ".TABLE_COLLECT." WHERE user_=? ORDER BY id DESC");
                     $colle -> execute([$user]);
                     $colle -> setFetchMode(PDO::FETCH_ASSOC);$o = 0;
                     while ($dat = $colle -> fetch()) {
@@ -25,7 +25,7 @@
                             "date" => [$dat["achat_"],$dat["livraison"]]
                         ];
                         $o++;
-                    }
+                    }*/
                 }
                $request["end"] = true; 
                 break;
@@ -43,7 +43,7 @@
                 else{
                     $request["end"] = true;
                     extract($answers["contents"]);
-                    $add_collect -> execute([$denre,$source,$circuit,$achat,$livraison,$user,@date("d/M/Y")]);
+                    //$add_collect -> execute([$denre,$source,$circuit,$achat,$livraison,$user,@date("d/M/Y")]);
                 }
                 break;
         }
