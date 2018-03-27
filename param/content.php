@@ -1,6 +1,6 @@
 <?php
     session_start();
-    header("Content-type:application/json");
+   // header("Content-type:application/json");
     require "zo_frame.php";
     require "db.php";
     $user = "1";
