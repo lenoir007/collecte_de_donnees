@@ -2,7 +2,7 @@
     session_start();
    header("Content-type:application/json");
     require "zo_frame.php";
-    require "db.php";
+    //require "db.php";
     $user = "1";
 
     //$add_collect = $db->prepare("INSERT INTO ".TABLE_COLLECT."(denre_,source_,circuit_,achat_,livraison_,user_,save_) VALUES(?,?,?,?,?,?,?)");
